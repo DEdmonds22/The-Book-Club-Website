@@ -1,6 +1,9 @@
 export default function LandingPage() {
     return (
         <>
+            <nav>
+                
+            </nav>
             <h1>The Book Club</h1>
             <main>
                 <h3>Welcome to 'The Book Club,' where avid readers unite to celebrate their shared love for literature. Immerse yourself in a vast ocean of books, and become part of a thriving community built around your passion. Here, you'll never miss a beat – stay informed about the latest book releases, emerging authors, exclusive meet-and-greets, and exciting literary discounts.</h3>
