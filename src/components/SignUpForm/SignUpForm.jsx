@@ -22,6 +22,11 @@ export default class SignUpForm extends Component {
     handleSubmit = async (evt) => {
         evt.preventDefault();
         
+        if (!/(?=.*\d)(?=.*[!@#$%^&*])/.test(this.state.password)) {
+            this.setState({ error: "Password must contain at least one number and one special character." });
+            return;
+        }
+
         try {
             const {firstName, lastName, email, userName, password} = this.state;
             const formData = {firstName, lastName, email, userName, password};
