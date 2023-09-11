@@ -8,7 +8,7 @@ export async function signUp(userData) {
     });
 
     if (res.ok) {
-        return res.status(200).json();
+        return res.json();
     } else {
         throw new Error("Invalid Sign Up");
     };
