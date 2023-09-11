@@ -1,4 +1,5 @@
 import { Component } from "react";
+import { signUp } from "../../utilities/users-service";
 
 export default class SignUpForm extends Component {
     state = {
@@ -18,10 +19,19 @@ export default class SignUpForm extends Component {
         });
     };
 
-    handleSubmit = (evt) => {
+    handleSubmit = async (evt) => {
         evt.preventDefault();
-        alert(JSON.stringify(this.state));
-    }
+        
+        try {
+            const {firstName, lastName, email, userName, password} = this.state;
+            const formData = {firstName, lastName, email, userName, password};
+            const user = await signUp(formData);  // passes form data to users-service.js w/ users-service.js's signUp func
+
+            console.log(user);
+        } catch {
+            this.setState({error: "Sign Up Failed - Try Again"});
+        };
+    };
 
     render() {
         const disable = this.state.password !== this.state.confirm;
@@ -47,5 +57,5 @@ export default class SignUpForm extends Component {
                 <p className="error-msg">&nbsp;{this.state.error}</p>
             </div>
         )
-    }
-}
+    };
+};
