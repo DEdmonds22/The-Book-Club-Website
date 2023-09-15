@@ -1,0 +1,124 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.logo {
+    border: 2px solid rgb(190, 162, 125);
+    padding: 4px;
+}
+
+/* NavBar.jsx*/
+
+header .search-bar {
+    text-align: center;
+    background-color: tan;
+    border-radius: 30px;
+    padding: 2px 12px;
+    width: 500px;
+}
+
+header .input[type="text"] {
+    border: none;
+    outline: none;
+    flex: 1;
+    padding: 8px;
+    font-size: 16px;
+    background: transparent;
+    color: white;
+}
+
+header .search-bar button {
+    padding: 5px;
+    border-radius: 30px;
+    border: none;
+    color: rgb(73, 55, 36);
+}
+
+header .search-bar button:hover {
+    cursor: pointer;
+}
+
+header .search-bar button:active {
+    font-size: 14px;
+}
+
+header #navBar p {
+    cursor: pointer;
+}
+
+header li {
+    list-style: none;
+}
+
+header a {
+    text-decoration: none;
+}
+
+header {
+    border-bottom: 1px soild #e2e8f0;
+    margin: 10px 0;
+
+}
+
+header #navBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+}
+
+header .hamburger {
+    display: block;
+    cursor: pointer;
+}
+
+header .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: #101010;
+}
+
+header .nav-menu-container {
+    display: none;
+}
+
+header .nav-menu-container.active {
+    display: block;
+}
+
+header .nav-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: 5rem;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow:
+    0 10px 27px rgba(0, 0, 0, 0.05);
+    background-color: rgb(254, 252, 248);
+}
+
+header .nav-item {
+    margin: .2rem;
+}
+
+header .nav-link {
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: #475569;
+}
+
+header .nav-link:hover {
+    color: tan;
+}
+
+header .nav-link:active {
+    color: rgb(73, 55, 36);
+}

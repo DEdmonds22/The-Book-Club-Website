@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-export default function NavBar() {
+export default function NavBar({user}) {
     const [menuIsOpen, setMenuIsOpen] = useState(false);
     const [searchTerm, setSearchTerm] = useState("");
 
@@ -29,6 +29,8 @@ export default function NavBar() {
                             <p>Club</p>
                         </Link>
                     </div>
+
+                    <h3>Welcome {user.firstName}!</h3>
 
                     <form onSubmit={handleSubmit}>
                         <div className="search-bar">

@@ -1,6 +1,6 @@
 import { useState } from "react";
-import HomePage from "./pages/HomePage";
-import LandingPage from "./pages/LandingPage";
+import HomePage from "./pages/HomePage/HomePage";
+import LandingPage from "./pages/LandingPage/LandingPage";
 import { Routes, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
 
