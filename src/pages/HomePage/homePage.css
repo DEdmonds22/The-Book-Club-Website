@@ -1,0 +1,70 @@
+#home-page {
+    text-align: center;
+}
+
+#home-page h2{
+font-family: 'Times New Roman', Times, serif;
+color: rgb(73, 55, 36);
+margin: 3px;
+}
+
+#home-page h2:hover{
+color: white;
+font-size: 1.7rem;
+}
+
+#container {
+    color: #100c0c;
+    background-color: #e1d0bb;
+    width: 90%;
+    height: 85vh;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    padding: 8px;
+    cursor: default;
+    border: 2px solid #100c0c;
+}
+
+.bookOfTheMonth {
+    grid-column: 1/2;
+    grid-row: 1/2;
+}
+
+.newlyCreatedClubs {
+    border-left: 2px solid #100c0c;
+    grid-column: 2/3;
+    grid-row: 1/2;
+}
+
+.profile {
+    border-left: 2px solid #100c0c;
+    border-right: 2px solid #100c0c;
+    grid-column: 3/4;
+    grid-row: 1/3;
+}
+
+.bookClubDiscussionBoard {
+    grid-column: 4/6;
+    grid-row: 1/2;
+}
+
+.recommendedBooks {
+    border-top: 2px solid #100c0c;
+    grid-column: 1/3;
+    grid-row: 2/3;
+}
+
+.hosting {
+    border-top: 2px solid #100c0c;
+    grid-column: 4/5;
+    grid-row: 2/3;
+}
+
+.upcommingEvents {
+    border-top: 2px solid #100c0c;
+    border-left: 2px solid #100c0c;
+    grid-column: 5/6;
+    grid-row: 2/3;
+}

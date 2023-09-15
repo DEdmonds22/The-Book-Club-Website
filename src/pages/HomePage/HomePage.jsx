@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+import styles from "../HomePage/homePage.css"
 
 export default function HomePage({user}) {
     return (
