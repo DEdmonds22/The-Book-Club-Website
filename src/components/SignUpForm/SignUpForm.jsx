@@ -31,8 +31,8 @@ export default class SignUpForm extends Component {
             const {firstName, lastName, email, userName, password} = this.state;
             const formData = {firstName, lastName, email, userName, password};
             const user = await signUp(formData); // passes form data to users-service.js w/ users-service.js's signUp func
-
             console.log(user);
+            this.props.setUser(user);
         } catch {
             this.setState({error: "Sign Up Failed - Try Again"});
         };

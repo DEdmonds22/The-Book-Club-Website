@@ -11,12 +11,12 @@ function App() {
     <div className="App">
       { user ?
       <>
-        <NavBar />
+        <NavBar user={user} />
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<HomePage user={user} />} />
         </Routes>
       </> :
-      <LandingPage />}
+      <LandingPage setUser={setUser} />}
     </div>
   );
 }

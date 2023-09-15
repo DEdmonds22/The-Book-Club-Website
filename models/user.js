@@ -1,5 +1,5 @@
 const { Schema, model } = require("mongoose");
-const bycrypt = require("bcrypt");
+const bcrypt = require("bcrypt");
 const SALT_ROUNDS = 6;
 
 const userSchema = new Schema({
@@ -36,10 +36,10 @@ const userSchema = new Schema({
 });
 
 // this pre-save hook middleware will hash the password anytime the password has changed
-userSchema.pre("save", async (next) => {
+userSchema.pre("save", async function(next) {
     if (!this.isModified("password")) return next(); // `this` is the user doc
 
-    this.password = await bycrypt.hash(this.password, SALT_ROUNDS);
+    this.password = await bcrypt.hash(this.password, SALT_ROUNDS);
     return next();
 })
 
