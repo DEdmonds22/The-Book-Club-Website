@@ -15,7 +15,7 @@ export default function NavBar({user}) {
     };
     const handleSubmit = (event) => {
         event.preventDefault();
-        window.location.href = `/searchResults?search=${searchTerm}`
+        window.location.href = `/search-results?search=${searchTerm}`
     };
 
     return (

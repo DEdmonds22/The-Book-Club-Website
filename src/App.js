@@ -17,7 +17,7 @@ function App() {
         <NavBar user={user} />
         <Routes>
           <Route path="/" element={<HomePage user={user} />} />
-          <Route path="/searchResults/" element={<SearchResults setBookList={setBookList} />} />
+          <Route path="/search-results/" element={<SearchResults setBookList={setBookList} />} />
         </Routes>
       </> :
       <LandingPage setUser={setUser} />}
