@@ -16,7 +16,7 @@ app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')));
 app.use(express.static(path.join(__dirname, 'build')));
 
 app.use("/api/users", require("./routes/api/users"));  // uses users.js whenever the base route is `/api/users`. The req comes from the users-api.js file fetch.
-
+/*
 app.use("/api/results", async (req, res) => {
     const { searchTerm, num } = req.query;
     try {
@@ -28,6 +28,7 @@ app.use("/api/results", async (req, res) => {
         res.status(500).json({ error: "Internal Server Error" });
     }
 });
+*/
 
 app.get('/*', (req, res) => {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
