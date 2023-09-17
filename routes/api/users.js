@@ -3,6 +3,7 @@ const router = express.Router();
 const usersCtrl = require("../../controllers/api/users");
 
 // POST /api/users
-router.post("/", usersCtrl.create);  // users-api.js's signUp func includes a POST req, which would trigger this
+router.post("/", usersCtrl.create);
+router.post("/login", usersCtrl.login);
 
-module.exports = router;  // since the router is now exported, we can now mount it in server.js
+module.exports = router;

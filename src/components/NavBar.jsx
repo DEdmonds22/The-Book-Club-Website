@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import * as usersService from "../utilities/users-service";
 
-export default function NavBar({user}) {
+export default function NavBar({ user, setUser }) {
     const [menuIsOpen, setMenuIsOpen] = useState(false);
     const [searchTerm, setSearchTerm] = useState("");
 
@@ -17,6 +18,11 @@ export default function NavBar({user}) {
         event.preventDefault();
         window.location.href = `/search-results?search=${searchTerm}`
     };
+
+    const handleLogOut = () => {
+        usersService.logOut();
+        setUser(null);
+    }
 
     return (
         <header>
@@ -44,7 +50,7 @@ export default function NavBar({user}) {
                         </div>
                     </form>
 
-                    <Link to="/sign-in">
+                    <Link to="" onClick={handleLogOut}>
                         <img src="/icons8-user-48.png"/>
                     </Link>
 

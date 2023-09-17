@@ -12,8 +12,6 @@ function createJWT(user) {
 };
 
 /* SIGN-UP's CREATE CONTROLLER ACTION  */
-
-// This serves as the create Sign-Up controller Action. This will need to return a JSON JWT from the controller action after the user is added to the db.
 const create = async (req, res) => {
     try {
         const user = await User.create(req.body);
@@ -25,6 +23,35 @@ const create = async (req, res) => {
     }
 };
 
+/* LOGIN's LOGIN CONTROLLER ACTION */
+const login = async (req, res) => {
+    try {
+        User.findOne({email: req.body.email})
+            .then(foundUser => {
+                if (foundUser) {
+                    bcyrpt.compare(req.body.password, foundUser.password, (error, result) => {
+                        if (error) {
+                            console.log(error);
+                            res.status(400).json(error);
+                        } else {
+                            if (result === true) {
+                                const token = createJWT(foundUser);
+                                res.status(200).json(token);
+                            } else {
+                                res.status(403).json({error: "Invalid Password!"})
+                            }
+                        };
+                    });
+                } else {
+                    res.status(400).json({error: "User Not Found"});
+                };
+            });
+    } catch (error) {
+        res.status(400).json({error});
+    };
+}
+
 module.exports = {
-    create
+    create,
+    login
 }

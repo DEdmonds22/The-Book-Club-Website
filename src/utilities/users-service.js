@@ -2,24 +2,33 @@ import * as usersAPI from "./users-api";
 
 export function getToken() {
     const token = localStorage.getItem('token');
-    if (!token) return null;  // if no token found in user's local storage, return setUser(null);
+    if (!token) return null; 
 
     const payload = JSON.parse(atob(token.split(".")[1]));
-    if (payload.exp < Date.now()/1000) {  //if token has expired, it is removed, also returns setUser(null);
+    if (payload.exp < Date.now()/1000) {
         localStorage.removeItem("token");
         return null;
     };
 
-    return token;  // otherwise, return the token
+    return token; 
 }
 
 export function getUser() {
-    const token = getToken();  // func on line 3
-    return token ? JSON.parse(atob(token.split('.')[1])).user : null;  // returns user
+    const token = getToken();
+    return token ? JSON.parse(atob(token.split('.')[1])).user : null;
+};
+
+export async function login(credentials) {
+    const token = await usersAPI.login(credentials);
+    localStorage.setItem('token', token);
+    return getUser();
+};
+
+export function logOut() {
+    localStorage.removeItem('token');
 };
 
 export async function signUp(userData ) {
-    const token = await usersAPI.signUp(userData);  // sends user data to users-api.js w/ users-api.js's signUp func
-    localStorage.setItem('token', token);  // saves said token to user's local storage
-    return getUser();  // func on line 16
+    const token = await usersAPI.signUp(userData);
+    localStorage.setItem('token', token);
 };

@@ -1,3 +1,4 @@
+import LoginForm from "../../components/LoginForm/LoginForm";
 import SignUpForm from "../../components/SignUpForm/SignUpForm";
 
 export default function LandingPage({setUser}) {
@@ -19,6 +20,9 @@ export default function LandingPage({setUser}) {
             <div>
                 <h2>Sign Up</h2>
                 <SignUpForm setUser={setUser} />
+                <h3>OR</h3>
+                <h2>Login</h2>
+                <LoginForm setUser={setUser}  />
             </div>
         </>
     )
