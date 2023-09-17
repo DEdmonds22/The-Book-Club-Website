@@ -21,6 +21,8 @@ export default function HomePage({user}) {
                 <Link to="/profile" >
                     <h2>Profile</h2>
                 </Link>
+                &nbsp;
+                <h4>Book Shelf</h4>
             </div>
 
             <div class="bookClubDiscussionBoard top">
