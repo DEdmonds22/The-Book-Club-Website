@@ -24,7 +24,11 @@ const userSchema = new Schema({
             },
             message: "Password must contain at least one number and one special character.",
         }
-    }
+    },
+    bookShelf: [{
+        type: Schema.Types.ObjectId,
+        ref: "Book"
+    }]
 }, {
     timestamps: true,
     toJSON: {

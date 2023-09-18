@@ -12,3 +12,9 @@
         // this will find the one book by the key and/or name
             // this will lead to the book-api and send a DELETE request for the book
         // respond - with the book schema data
+
+import * as bookAPI from "../books-service/book-api";
+
+export async function addBook(bookDetails) { // info is passed down - working
+    return await bookAPI.addBook(bookDetails);
+}

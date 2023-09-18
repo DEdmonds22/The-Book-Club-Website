@@ -9,25 +9,8 @@ import { BookShelf } from "./pages/BookShelf/BookShelf";
 
 function App() {
   const [user, setUser] = useState(getUser());
-  const [bookList, setBookList] = useState([]); // will be passed to bookshelf page, when it's created. It will list all books added to bookshelf.
+  const [bookList, setBookList] = useState([]); // will be passed to bookshelf page, when it's created. It will list all books added to bookshelf. A func from book-api will return full bookshelf and set = to bookList useState?
 
-  const addBook = (id, title,  authors, description, category, img) => {
-    const newRead = {
-      key:id,
-      title: title,
-      authors: authors,
-      description: description,
-      category: category,
-      img: img
-    }
-    setBookList(prev => [...prev, newRead])
-  }
-
-/*
-  useEffect(()=>{
-    console.log(bookList)
-  }, [bookList]);
-*/
   return (
     <div className="App">
       { user ?
@@ -35,7 +18,7 @@ function App() {
         <NavBar user={user} setUser={setUser} />
         <Routes>
           <Route path="/" element={<HomePage user={user} bookList={bookList} />} />
-          <Route path="/search-results/" element={<SearchResults addBook={addBook} />} />
+          <Route path="/search-results/" element={<SearchResults />} />
           <Route path="/book-shelf/" element={<BookShelf bookList={bookList} />} />
         </Routes>
       </> :
