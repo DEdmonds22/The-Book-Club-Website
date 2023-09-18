@@ -28,3 +28,7 @@ export async function login(credentials) {
 export async function signUp(userData) {
     return sendRequest (Base_URL, "POST", userData);
 };
+
+export function checkToken() {
+    return sendRequest(`${Base_URL}/checkToken`);
+}
