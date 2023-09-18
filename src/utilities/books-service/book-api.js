@@ -1,5 +1,4 @@
 import { getToken } from "../users-service";
-
 const BASE_URL = "/api/books";
 
 async function sendRequest(url, method="GET", payload=null) {

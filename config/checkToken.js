@@ -12,7 +12,6 @@ module.exports = function(req, res, next) {
             // if vaild token, decoded will be the token's entire payload, else error will be set
             req.user = error ? null : decoded.user;
             req.exp = error ? null : new Date(decoded.exp * 1000);
-            console.log(req.user)
             return next();
         });
     } else {

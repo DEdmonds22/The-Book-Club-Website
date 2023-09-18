@@ -14,7 +14,11 @@
         // respond - with the book schema data
 
 import * as bookAPI from "../books-service/book-api";
+import { getUser } from "../users-service";
 
 export async function addBook(bookDetails) { // info is passed down - working
+    const user = getUser();
+    bookDetails.addedByUser = user._id;
+    console.log(bookDetails)
     return await bookAPI.addBook(bookDetails);
-}
+};
