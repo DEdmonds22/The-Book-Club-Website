@@ -19,6 +19,17 @@ app.use(require("./config/checkToken"));
 
 app.use("/api/users", require("./routes/api/users"));
 app.use("/api/books", require("./routes/api/books"));
+app.use("/api/results", async (req, res) => {
+    const { search, num } = req.query;
+    try {
+        const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${search}&maxResults=${num}&key=${key}`);
+        const data = await response.json();
+        res.json(data);
+    } catch (error) {
+        console.error("Error fetching results", error);
+        res.status(500).json({ error: "Internal Server Error" });
+    }
+});
 
 app.get('/*', (req, res) => {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));

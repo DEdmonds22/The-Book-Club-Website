@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import styles from "../SearchResults/searchResults.css";
+import bookLibraryResults from "../../utilities/results-service/results-api";
 import { addBook } from "../../utilities/books-service/book-service";
 
 export default function SearchResults() {
@@ -10,19 +11,19 @@ export default function SearchResults() {
     const searchTerm = queryParams.get("search") || "";
     const [num, setNum] = useState("15")
 
-    const fetchSearchResults = async () => {
-        try {
-            const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&maxResults=${num}`);
-            const data = await response.json();
-            setResults(data.items)
-        } catch (error) {
-            console.error("Error fetching data: ", error);
-        }
-    };
-
     useEffect(() => {
-        fetchSearchResults()
-    }, [num]);
+        const fetchData = async () => {
+            try {
+                const data = await bookLibraryResults(searchTerm, num);
+                console.log(data.items)
+                setResults(data.items);
+            } catch (error) {
+                console.error("Error fetching results ", error);
+            };
+        };
+
+        fetchData();
+    }, [searchTerm, num]);
 
     const handleClick = (id, title, authors, description, categories, img) => {
         const bookInfo = {
