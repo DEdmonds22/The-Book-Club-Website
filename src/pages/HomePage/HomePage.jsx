@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import styles from "../HomePage/homePage.css"
 
-export default function HomePage({user}) {
+export default function HomePage({user, bookShelf}) {
     return (
         <main id="home-page">
         <main id="container">
@@ -22,7 +22,21 @@ export default function HomePage({user}) {
                     <h2>Profile</h2>
                 </Link>
                 &nbsp;
-                <h4>Book Shelf</h4>
+                <Link to="/book-shelf">
+                    <h4>Book Shelf</h4>
+                </Link>
+                {bookShelf && bookShelf.length > 0 ? 
+                (bookShelf.map(book => {
+                    return (
+                        <div key={book.id} className="book" >
+                            <h2>{book.title}</h2>
+                            <img src={book.img} />
+                            <p>by: {book.authors?.join(", ")}</p>
+                        </div>
+                    )
+                })) :
+                <p>No Books on Your Shelf</p>
+            }
             </div>
 
             <div className="bookClubDiscussionBoard top">

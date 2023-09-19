@@ -4,7 +4,7 @@ import styles from "../SearchResults/searchResults.css";
 import bookLibraryResults from "../../utilities/results-service/results-api";
 import { addBook } from "../../utilities/books-service/book-service";
 
-export default function SearchResults() {
+export default function SearchResults({setBookAdded}) {
     const [results, setResults] = useState([]);
     const location = useLocation();
     const queryParams = new URLSearchParams(location.search);
@@ -23,9 +23,10 @@ export default function SearchResults() {
         };
 
         fetchData();
+
     }, [searchTerm, num]);
 
-    const handleClick = (id, title, authors, description, categories, img) => {
+    const handleClick = async (id, title, authors, description, categories, img) => {
         const bookInfo = {
             id,
             title,
@@ -35,7 +36,13 @@ export default function SearchResults() {
             img
         };
 
-        addBook(bookInfo)
+        await addBook(bookInfo)
+            .then(() => {
+                setBookAdded(true);
+            })
+            .catch(error => {
+                console.error(error)
+            })
     };
 
     const itemsIncreased = () => setNum("30");

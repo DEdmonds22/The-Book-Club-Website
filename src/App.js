@@ -10,7 +10,26 @@ import { getBookShelf } from "./utilities/books-service/book-api";
 
 function App() {
   const [user, setUser] = useState(getUser());
-  const [bookShelf, setBookShelf] = useState(); // will be passed to bookshelf page, when it's created. It will list all books added to bookshelf. A func from book-api will return full bookshelf and set = to bookList useState?
+  const [bookShelf, setBookShelf] = useState();
+  const [bookAdded, setBookAdded] = useState(false);
+
+  useEffect(() => {
+    const fetchData = async () => {
+        try {
+          if (user) {
+            const books = await getBookShelf(user._id);
+            console.log(books);
+            setBookShelf(books);
+          }
+        } catch (error) {
+            console.error("Error fetching results ", error);
+        };
+    };
+
+    fetchData();
+    console.log(bookShelf)
+}, [user, bookAdded]);
+console.log(bookShelf)
 
   return (
     <div className="App">
@@ -18,8 +37,8 @@ function App() {
       <>
         <NavBar user={user} setUser={setUser} />
         <Routes>
-          <Route path="/" element={<HomePage user={user} />} />
-          <Route path="/search-results/" element={<SearchResults />} />
+          <Route path="/" element={<HomePage user={user} bookShelf={bookShelf} />} />
+          <Route path="/search-results/" element={<SearchResults setBookAdded={setBookAdded} />} />
           <Route path="/book-shelf/" element={<BookShelf bookShelf={bookShelf} setBookShelf={setBookShelf} />} />
         </Routes>
       </> :

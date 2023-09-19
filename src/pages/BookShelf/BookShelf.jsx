@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { getBookShelf } from "../../utilities/books-service/book-service"
 
 export function BookShelf({bookShelf, setBookShelf}) {
-    
+
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -15,7 +15,7 @@ export function BookShelf({bookShelf, setBookShelf}) {
         };
 
         fetchData();
-    }, []);
+    }, [])
 
     return (
         <div>
