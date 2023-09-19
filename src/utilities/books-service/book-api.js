@@ -19,9 +19,9 @@ async function sendRequest(url, method="GET", payload=null) {
     if (res.ok) return res.json();
 
     throw new Error("Bad Request");
-}
+};
 
 export async function addBook(bookDetails) {
     console.log(bookDetails)
     return sendRequest(`${BASE_URL}/add`, "POST", bookDetails);
-}
+};
