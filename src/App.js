@@ -4,10 +4,9 @@ import LandingPage from "./pages/LandingPage/LandingPage";
 import { Routes, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import SearchResults from "./pages/SearchResults/SearchResults";
-import { getUser } from "./utilities/users-service";
+import { getUser } from "./utilities/users-service/users-service";
 import { BookShelf } from "./pages/BookShelf/BookShelf";
 import { getBookShelf } from "./utilities/books-service/book-api";
-// import { addBook, getBookShelf } from "./utilities/books-service/book-service";
 
 function App() {
   const [user, setUser] = useState(getUser());
