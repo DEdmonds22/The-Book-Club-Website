@@ -22,3 +22,8 @@ export async function addBook(bookDetails) { // info is passed down - working
     console.log(bookDetails)
     return await bookAPI.addBook(bookDetails);
 };
+
+export async function getBookShelf() {
+    const user = getUser();
+    return await bookAPI.getBookShelf(user._id);
+}

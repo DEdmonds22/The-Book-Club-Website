@@ -7,6 +7,21 @@ async function updateUsersBookShelf(foundBook, user) {
     userToUpdate.bookShelf.push(foundBook._id);
     await userToUpdate.save();
     console.log("Book added to the user's bookShelf/")
+};
+
+const getBookShelf = async (req, res) => {
+    const userId = req.params.userId;
+    try {
+        const userInfo = await User.findById(userId).populate("bookShelf");
+        if (userInfo) {
+            res.status(200).json(userInfo.bookShelf);
+        } else {
+            console.log("User not found.");
+            res.status(404).json({message: "User not found."});
+        }
+    } catch (error) {
+        res.status(500).json({error});
+    }
 }
 
 const create = async (req, res) => {
@@ -35,13 +50,13 @@ const create = async (req, res) => {
             // update the user's bookShelf
             updateUsersBookShelf(foundBook, user);
         }
-        res.status(200).send("Book created and added to the user's bookShelf.");
+        res.status(200).json({ message: "Book created and added to the user's bookShelf."});
     } catch (error) {
-            console.error("Error:", error);
-            res.status(500).send("An error occurred.");
-        }
+        res.status(500).json({error});
+    }
 }
 
 module.exports = {
-    create
+    create,
+    getBookShelf
 }

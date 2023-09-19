@@ -3,5 +3,6 @@ const router = express.Router();
 const booksCtrl = require("../../controllers/api/books");
 
 router.post("/add", booksCtrl.create);
+router.get("/:userId", booksCtrl.getBookShelf)
 
 module.exports = router;

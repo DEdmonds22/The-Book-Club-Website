@@ -25,3 +25,7 @@ export async function addBook(bookDetails) {
     console.log(bookDetails)
     return sendRequest(`${BASE_URL}/add`, "POST", bookDetails);
 };
+
+export async  function getBookShelf(userId) {
+    return sendRequest(`${BASE_URL}/${userId}`, "GET");
+};
