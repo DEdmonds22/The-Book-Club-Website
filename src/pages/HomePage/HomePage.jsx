@@ -22,21 +22,58 @@ export default function HomePage({user, bookShelf}) {
                     <h2>Profile</h2>
                 </Link>
                 &nbsp;
-                <Link to="/book-shelf">
-                    <h4>Book Shelf</h4>
+                <div className="img-placeholder">
+                    <p>Profile Picture Placeholder</p>
+                </div>
+                &nbsp;
+                <Link to="/book-shelf" className="subSection">
+                    <h4>Bookshelf</h4>
                 </Link>
-                {bookShelf && bookShelf.length > 0 ? 
-                (bookShelf.map(book => {
-                    return (
-                        <div key={book.id} className="book" >
-                            <h2>{book.title}</h2>
-                            <img src={book.img} />
-                            <p>by: {book.authors?.join(", ")}</p>
+                <div className="book-cont">
+                    <section className="bookshelf">
+                        {bookShelf && bookShelf.length > 0 ?
+                        (bookShelf.map(book => {
+                            return (
+                                <div key={book.id} className="book" >
+                                    <p>{book.title}</p>
+                                    <img src={book.img} />
+                                    <p>by: {book.authors?.join(", ")}</p>
+                                </div>
+                            )
+                        })) :
+                        <p>No Books on Your Shelf</p>
+                        }
+                    </section>
+                    <Link to="" className="subSection">
+                        <h4>Book Clubs</h4>
+                    </Link>
+                    <div className="hosting-cont">
+                        <h4>- Hosting -</h4>
+                        <p>Title of Club</p>
+                            &nbsp;
+                        <p>Title of Club</p>
+                            &nbsp;
+                        <p>Title of Club</p>
+                    </div>
+                    
+                    <div className="participation">
+                        <h4>- Participating -</h4>
+                        <div className="club-cont">
+                            <p>Title of Club</p>
+                            <h6>name of host</h6>
                         </div>
-                    )
-                })) :
-                <p>No Books on Your Shelf</p>
-            }
+                            &nbsp;
+                        <div className="club-cont">
+                            <p>Title of Club</p>
+                            <h6>name of host</h6>
+                        </div>
+                            &nbsp;
+                        <div className="club-cont">
+                            <p>Title of Club</p>
+                            <h6>name of host</h6>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div className="bookClubDiscussionBoard top">

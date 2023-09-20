@@ -2,15 +2,26 @@
     text-align: center;
 }
 
-#home-page h2{
-font-family: 'Times New Roman', Times, serif;
-color: rgb(73, 55, 36);
-margin: 3px;
+#home-page h2 {
+    color: rgb(172, 104, 15);
+    margin: 3px;
+    text-decoration: underline rgb(172, 104, 15) 2px;
 }
 
-#home-page h2:hover{
-color: white;
-font-size: 1.7rem;
+#home-page .subSection {
+    color: rgb(172, 104, 15);
+    text-decoration: none;
+}
+
+#home-page h2:hover {
+    color: white;
+    font-size: 1.55rem;
+}
+
+#home-page .subSection:hover {
+    color: rgb(93, 56, 9);
+/*    font-size: 1.05rem;*/
+    text-decoration: underline;
 }
 
 #container {
@@ -67,4 +78,54 @@ font-size: 1.7rem;
     border-left: 2px solid #100c0c;
     grid-column: 5/6;
     grid-row: 2/3;
+}
+
+/* profile */
+.profile .img-placeholder {
+    background-color: white;
+    display: inline-block;
+    padding: 80px 10px;
+    border: #100c0c solid 2px;
+    margin: 20px;
+}
+
+/* sections */
+.profile .book-cont {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.profile section {
+    width: 20rem;
+    height: auto;
+    border: #100c0c double 5px;
+    padding: 20px 0px;
+    margin: 10px;
+    display: flex;
+    overflow: scroll;
+    justify-content: baseline;
+    align-items: center;
+}
+
+/* items displayed */
+.profile .book {
+    height: 270px;
+    width: 200px;
+    padding: 20px;
+}
+
+.profile .book  img {
+    width: 150px;
+    height: 200px;
+}
+
+.profile .book p {
+    font-size: 1rem;
+    font-weight: 580;
+}
+
+/* hosting and partication */
+.profile .hosting-cont,
+.profile .participation {
+    margin: 10px;
 }

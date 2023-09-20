@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import * as usersService from "../utilities/users-service/users-service";
+import styles from "../components/NavBar.css"
 
 export default function NavBar({ user, setUser }) {
     const [menuIsOpen, setMenuIsOpen] = useState(false);
@@ -51,7 +52,7 @@ export default function NavBar({ user, setUser }) {
                     </form>
 
                     <Link to="" onClick={handleLogOut}>
-                        <img src="/icons8-user-48.png"/>
+                        <img src="/icons8-user-48.png" className="icon"/>
                     </Link>
 
                     <div className="hamburger" onClick={openMenu}>

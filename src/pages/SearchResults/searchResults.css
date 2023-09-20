@@ -1,6 +1,6 @@
 /* FULL-LIBRARY book cards*/
 
-.book-con {
+.search-results-container .book-con {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -8,7 +8,12 @@
     padding: 20px;
 }
 
-.book {
+.search-results-container h1 {
+    position: relative;
+    left: 60px;
+}
+
+.search-results-container .book {
     height: auto;
     width: 350px;
     border: 3px dotted rgb(73, 55, 36);
@@ -19,28 +24,47 @@
     text-align: center;
 }
 
-.book img {
+.search-results-container .book img {
     width: 150px;
     height:200px
 }
 
-.book h2,
-.book p {
+.search-results-container .book h2,
+.search-results-container .book p {
     margin: .8rem;
 }
 
-.book h2:hover,
-.book p:hover {
+.search-results-container .book h2:hover,
+.search-results-container .book p:hover {
     color: white;
     cursor: pointer;
     font-size: 1.7rem;
 }
 
-.book:active,
-.book h2:active,
-.book p:active {
+.search-results-container .book:active,
+.search-results-container .book h2:active,
+.search-results-container .book p:active {
     color:  black;
     background-color: tan;
+}
+
+/* btns */
+.search-results-container button {
+    color: black;
+    padding: 3px;
+    border-radius: 5px;
+    background-color: rgb(172, 104, 15);
+}
+
+.search-results-container button:hover {
+    color: white;
+    padding: 3px;
+    border-radius: 5px;
+    background-color: rgb(172, 104, 15);
+}
+
+.search-results-container button:active {
+    background-color: rgb(93, 56, 9);
 }
 
 /*TESSTT*/

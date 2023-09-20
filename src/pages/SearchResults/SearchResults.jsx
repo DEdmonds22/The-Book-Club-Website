@@ -48,8 +48,9 @@ export default function SearchResults({setBookAdded}) {
     const itemsIncreased = () => setNum("30");
     
     return (
-        <div>
+        <div className="search-results-container">
             <h1>Search Results</h1>
+            <br />
             <div className="book-con">
                 {results.map((book) => (
                 <div key={book.id} className="book" >
@@ -66,6 +67,7 @@ export default function SearchResults({setBookAdded}) {
                 </div>
                 ))}
             </div>
+            <br />
             <button onClick={itemsIncreased}>Show More</button>
         </div>
     );
