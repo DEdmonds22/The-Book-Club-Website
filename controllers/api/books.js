@@ -54,9 +54,35 @@ const create = async (req, res) => {
     } catch (error) {
         res.status(500).json({error});
     }
+};
+
+const deleteBook = async (req, res) => {
+    const {bookId, userId} = req.params;
+    const currentUser = await User.findById(userId);
+
+    try {
+        const selectedBook = await Book.findById(bookId);
+        if (!selectedBook) {
+            return res.status(404).json({ message: 'Book not found' });
+        }
+
+        const updatedAddedByUser = selectedBook.addedByUser.filter(id => id.toString() !== userId);
+        
+        selectedBook.addedByUser = updatedAddedByUser;
+        currentUser.bookShelf = currentUser.bookShelf.filter(book => book.toString() !== bookId);
+
+        await selectedBook.save();
+        await currentUser.save();
+
+        res.status(200).json({ message: 'Book removed from bookshelf' });
+    } catch (error) {
+        console.error('Error:', error);
+        res.status(500).json({ message: 'An error occurred.' });
+    }
 }
 
 module.exports = {
     create,
-    getBookShelf
+    getBookShelf,
+    deleteBook
 }

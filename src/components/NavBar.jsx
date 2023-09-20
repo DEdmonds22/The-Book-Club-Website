@@ -72,10 +72,10 @@ export default function NavBar({ user, setUser }) {
                             <Link to="/profile" className="nav-link"> Profile - TBA</Link>
                         </li>
                         <li className="nav-item" onClick={closeMenu}>
-                            <Link to="/book-shelf" className="nav-link">Book Shelf - TBA</Link>
+                            <Link to="/book-shelf" className="nav-link">Book Shelf</Link>
                         </li>
                         <li className="nav-item" onClick={closeMenu}>
-                            <Link to="/full-library" className="nav-link">Full Library - in construction</Link>
+                            <Link to="/full-library" className="nav-link">Full Library</Link>
                         </li>
                         <li className="nav-item" onClick={closeMenu}>
                             <Link to="/book-clubs" className="nav-link">Book Clubs - TBA</Link>

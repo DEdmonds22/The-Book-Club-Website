@@ -59,3 +59,22 @@
     color:  black;
     background-color: tan;
 }
+
+/* btns */
+.bookShelf-cont button {
+    color: black;
+    padding: 3px;
+    border-radius: 5px;
+    background-color: rgb(172, 104, 15);
+}
+
+.bookShelf-cont button:hover {
+    color: white;
+    padding: 3px;
+    border-radius: 5px;
+    background-color: rgb(172, 104, 15);
+}
+
+.bookShelf-cont button:active {
+    background-color: rgb(93, 56, 9);
+}

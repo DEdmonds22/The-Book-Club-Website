@@ -27,3 +27,8 @@ export async function getBookShelf() {
     const user = getUser();
     return await bookAPI.getBookShelf(user._id);
 }
+
+export async function deleteBook(bookId) {
+    const user = getUser();
+    return await bookAPI.deleteBook(bookId, user._id);
+}

@@ -1,8 +1,9 @@
 import { useEffect } from "react";
-import { getBookShelf } from "../../utilities/books-service/book-service"
+import { getBookShelf } from "../../utilities/books-service/book-service";
+import { deleteBook } from "../../utilities/books-service/book-service";
 import styles from "../BookShelf/BookShelf.css"
 
-export function BookShelf({bookShelf, setBookShelf}) {
+export function BookShelf({bookShelf, setBookShelf, setBookDelete}) {
 
     useEffect(() => {
         const fetchData = async () => {
@@ -16,7 +17,17 @@ export function BookShelf({bookShelf, setBookShelf}) {
         };
 
         fetchData();
-    }, [])
+    }, []);
+
+    const handleClick = async (bookId) => {
+        await deleteBook(bookId)
+            .then(() => {
+                setBookDelete(true);
+            })
+            .catch(error => {
+                console.error(error)
+            })
+    }
 
     return (
         <div className="bookShelf-cont">
@@ -30,6 +41,10 @@ export function BookShelf({bookShelf, setBookShelf}) {
                                 <h2>{book.title}</h2>
                                 <img src={book.img} />
                                 <p>by: {book.authors?.join(", ")}</p>
+                                <p>{book._id}</p>
+                                <button onClick={() => handleClick(
+                                    book._id
+                                )}>Delete from Shelf</button>
                             </div>
                         )
                     })) :

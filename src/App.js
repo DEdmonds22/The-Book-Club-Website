@@ -12,6 +12,7 @@ function App() {
   const [user, setUser] = useState(getUser());
   const [bookShelf, setBookShelf] = useState();
   const [bookAdded, setBookAdded] = useState(false);
+  const [bookDeleted, setBookDelete] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -28,7 +29,7 @@ function App() {
 
     fetchData();
     console.log(bookShelf)
-}, [user, bookAdded]);
+}, [user, bookAdded, bookDeleted]);
 console.log(bookShelf)
 
   return (
@@ -39,7 +40,7 @@ console.log(bookShelf)
         <Routes>
           <Route path="/" element={<HomePage user={user} bookShelf={bookShelf} />} />
           <Route path="/search-results/" element={<SearchResults setBookAdded={setBookAdded} />} />
-          <Route path="/book-shelf/" element={<BookShelf bookShelf={bookShelf} setBookShelf={setBookShelf} />} />
+          <Route path="/book-shelf/" element={<BookShelf bookShelf={bookShelf} setBookShelf={setBookShelf} setBookDelete={setBookDelete} />} />
         </Routes>
       </> :
       <LandingPage setUser={setUser} />}
