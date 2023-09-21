@@ -41,7 +41,6 @@ export function BookShelf({bookShelf, setBookShelf, setBookDelete}) {
                                 <h2>{book.title}</h2>
                                 <img src={book.img} />
                                 <p>by: {book.authors?.join(", ")}</p>
-                                <p>{book._id}</p>
                                 <button onClick={() => handleClick(
                                     book._id
                                 )}>Delete from Shelf</button>

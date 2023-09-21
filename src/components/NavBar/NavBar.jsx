@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import * as usersService from "../utilities/users-service/users-service";
-import styles from "../components/NavBar.css"
+import * as usersService from "../../utilities/users-service/users-service";
+import styles from "../NavBar/NavBar.css"
 
 export default function NavBar({ user, setUser }) {
     const [menuIsOpen, setMenuIsOpen] = useState(false);

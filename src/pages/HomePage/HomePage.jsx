@@ -100,6 +100,8 @@ export default function HomePage({user, bookShelf}) {
                 </Link>
             </div>
         </main>
+        <br />
+        <button>Name Change</button>
     </main>
     )
 }

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import HomePage from "./pages/HomePage/HomePage";
 import LandingPage from "./pages/LandingPage/LandingPage";
 import { Routes, Route } from "react-router-dom";
-import NavBar from "./components/NavBar";
+import NavBar from "./components/NavBar/NavBar";
 import SearchResults from "./pages/SearchResults/SearchResults";
 import { getUser } from "./utilities/users-service/users-service";
 import { BookShelf } from "./pages/BookShelf/BookShelf";
@@ -19,7 +19,6 @@ function App() {
         try {
           if (user) {
             const books = await getBookShelf(user._id);
-            console.log(books);
             setBookShelf(books);
           }
         } catch (error) {
@@ -28,9 +27,7 @@ function App() {
     };
 
     fetchData();
-    console.log(bookShelf)
 }, [user, bookAdded, bookDeleted]);
-console.log(bookShelf)
 
   return (
     <div className="App">
