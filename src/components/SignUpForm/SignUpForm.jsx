@@ -1,8 +1,11 @@
 import { Component } from "react";
+import { useNavigate } from "react-router-dom";
 import { signUp } from "../../utilities/users-service/users-service";
 import styles from "../SignUpForm/SignUpForm.css";
 
 export default class SignUpForm extends Component {
+    navigate = useNavigate();
+
     state = {
         firstName: "",
         lastName: "",
@@ -33,6 +36,7 @@ export default class SignUpForm extends Component {
             const formData = {firstName, lastName, email, userName, password};
             const user = await signUp(formData); // passes form data to users-service.js w/ users-service.js's signUp func
             this.props.setUser(user);
+            this.navigate("/");
         } catch {
             this.setState({error: "Sign Up Failed - Try Again"});
         };

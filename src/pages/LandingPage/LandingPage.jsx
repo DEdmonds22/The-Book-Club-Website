@@ -1,11 +1,10 @@
-import LoginForm from "../../components/LoginForm/LoginForm";
-import SignUpForm from "../../components/SignUpForm/SignUpForm";
+import { Link } from "react-router-dom";
 import styles from "../LandingPage/LandingPage.css";
 
-export default function LandingPage({setUser}) {
+export default function LandingPage() {
     return (
         <div className="landingPage">
-            <div className="cont bio">
+            <div className="bio container">
                 <h1>The Book Club</h1>
                 <main>
                     < br/>
@@ -17,21 +16,10 @@ export default function LandingPage({setUser}) {
                 </main>
             </div>
 
-            <div className="cont forms">
-                <aside className="left">
-                    <h2>Sign Up</h2>
-                    <div className="inner-div">
-                        <br />
-                        <SignUpForm setUser={setUser} />
-                    </div>
-                </aside>
-                <aside className="right">
-                    <h2>Login</h2>
-                    <div className="inner-div">
-                        <br />
-                        <LoginForm setUser={setUser}  />
-                    </div>
-                </aside>
+            <div className="forms container">
+                <Link to="/signUpForm" className="btn" >Sign Up</Link>
+                |
+                <Link to="/loginForm" className="btn">Login</Link>
             </div>
         </div>
     )

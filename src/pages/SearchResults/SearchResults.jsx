@@ -35,6 +35,7 @@ export default function SearchResults({setBookAdded}) {
             categories, 
             img
         };
+        console.log(bookInfo)
 
         await addBook(bookInfo)
             .then(() => {
@@ -54,16 +55,19 @@ export default function SearchResults({setBookAdded}) {
             <div className="book-con">
                 {results.map((book) => (
                 <div key={book.id} className="book" >
-                    <h2>{book.volumeInfo.title}</h2>
                     <img src={book.volumeInfo.imageLinks?.smallThumbnail} />
-                    <p>by: {book.volumeInfo.authors?.join(", ")}</p>
-                    <button onClick={() => handleClick(
-                        book.id, 
-                        book.volumeInfo.title, 
-                        book.volumeInfo.authors, 
-                        book.volumeInfo.description, 
-                        book.volumeInfo.categories, 
-                        book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.smallThumbnail :  null)}>Add to Bookshelf</button>
+                    <h2>{book.volumeInfo.title}</h2>
+                    <p>By: {book.volumeInfo.authors?.join(", ")}</p>
+                    <div className="btn-cont">
+                        <button onClick={() => handleClick(
+                            book.id,
+                            book.volumeInfo.title,
+                            book.volumeInfo.authors,
+                            book.volumeInfo.description,
+                            book.volumeInfo.categories,
+                            book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.large :  null)}>Add to Bookshelf
+                            </button>
+                    </div>
                 </div>
                 ))}
             </div>

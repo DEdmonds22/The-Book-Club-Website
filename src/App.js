@@ -7,6 +7,8 @@ import SearchResults from "./pages/SearchResults/SearchResults";
 import { getUser } from "./utilities/users-service/users-service";
 import { BookShelf } from "./pages/BookShelf/BookShelf";
 import { getBookShelf } from "./utilities/books-service/book-api";
+import SignUpForm from "./components/SignUpForm/SignUpForm";
+import LoginForm from "./components/LoginForm/LoginForm";
 
 function App() {
   const [user, setUser] = useState(getUser());
@@ -40,7 +42,13 @@ function App() {
           <Route path="/book-shelf/" element={<BookShelf bookShelf={bookShelf} setBookShelf={setBookShelf} setBookDelete={setBookDelete} />} />
         </Routes>
       </> :
-      <LandingPage setUser={setUser} />}
+      <>
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/signUpForm" element={<SignUpForm setUser={setUser} />} />
+          <Route path="/loginForm" element={<LoginForm setUser={setUser} />}/>
+        </Routes>
+      </>}
     </div>
   );
 }
